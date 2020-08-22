@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ditto information</title>
+    <script type="text/javascript" src='external ref/introduction.js'></script>
+    <link rel='stylesheet type' type='text/css' href='external ref/introduction.css'/>
+</head>
+<body>
+    <!-- Tab -->
+    <div class='Tab'>
+        <div class='tabPart'>
+            <button id='BI'  class='selectedTab' onclick='Transformation(0);'> 基本資料 </button>
+            <button id='EXP' class='unselectedTab' onclick='Transformation(1);'> 關於 </button>
+            <button id='PHOTO' class='unselectedTab' onclick='Transformation(2);'> 照片 </button>
+        </div>
+        <div class='Logo'>
+            <img src='external ref/Ditto_background-removebg-preview.png' width='300px' height='150px' style='margin-left:70%'/>
+        </div>
+        
+    </div>
+    <hr style='width:1000px'>
+    <div class='Content'>
+    <!-- 基本資料內容 -->
+        <div id='biContent' class='selectedContent'> 
+            <div style='font-weight: bold;'> 編號132 百變怪 </div>
+            <div style='height:20px'></div>
+            <div> 身高: 40 cm </div>
+            <div> 體重: 4 kg </div>
+            <div> 特性: 柔軟 </div>
+            <div> 屬性: 一般 </div>
+            <div> 弱點: 格鬥 </div>
+        </div>
+
+        <!-- 關於內容 -->
+        <div id='expContent' class='unselectedContent'>
+            <div> 
+                1. 能夠變身成任何東西，但每隻百變怪似乎各自有擅長和不擅長變形的對象。
+            </div>
+            <div>
+                2. 能變身成自己看過的東西。但當對象不在眼前時，因為只能靠記憶來變身，所以有時會失敗。
+            </div> 
+        </div>
+
+        <!-- 照片內容 -->
+        <div id='photoContent' class='unselectedContent'> 
+            <div class='photoBlock'>
+                <div class='subPhotoBlock'>
+                    <img src='external ref/Ditto1.jpg' width='260px' height='200px'>
+                    <div> 一般型態的百變怪 </div>
+                </div>
+                <div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div>
+
+                <div class='subPhotoBlock'>
+                    <img src='external ref/pikachu_ditto.PNG' width='260px' height='200px'>
+                    <div> 變身失敗的百變怪 </div>
+                </div>
+                <div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div>
+
+                <div class='subPhotoBlock'>
+                    <img src='external ref/sick_ditto.PNG' width='260px' height='200px'>
+                    <div> 疲憊的百變怪 </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
