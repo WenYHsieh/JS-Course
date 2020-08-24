@@ -1,0 +1,28 @@
+.main{
+    width:80%; /* 要給居中的元素一個寬度，不然margin設定會失效 */
+    display: flex;
+    background-color: aliceblue;
+
+}
+.leftBlock{
+    width:50%;
+    height:800px;
+    background-color: rgb(228, 228, 228);
+
+}
+.Slider{
+    width:1%;
+    height:800px;
+    background-color: rgb(75, 73, 73);
+    position: static;
+    cursor: default;
+    
+    
+
+}
+.rightBlock{
+    width:50%;
+    height:800px;
+    background-color: rgb(181, 151, 209);
+
+}
