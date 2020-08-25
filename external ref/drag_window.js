@@ -13,25 +13,31 @@ let RB = getId('Right');
 ///// Event function /////
 let Move = function(eventObj){
     console.log(eventObj.clientX, eventObj.clientY);
+    
     let screenWidth = window.screen.availWidth;
-    console.log(screenWidth)
     let blockWidth = screenWidth*0.5;
-    let slideDistance = blockWidth - eventObj.clientX;
+    let changePercentage = (blockWidth - eventObj.clientX)/blockWidth;
+    console.log(changePercentage);
     SL.style.position = 'fixed';
-    SL.style.left = blockWidth-slideDistance + 'px';
+    SL.style.left = blockWidth-(blockWidth*changePercentage) + 'px';
     SL.style.cursor = 'e-resize'
-    //LB.style.width = blockWidth-slideDistance + 'px';
-    //RB.style.width = blockWidth+slideDistance + 'px';
+    LB.style.width = blockWidth-(blockWidth*changePercentage) + 'px';
+    RB.style.width = screenWidth+(blockWidth*changePercentage) + 'px';
+    
+
+
 
 
 }
 
 let Drag = function(){
+    SL.style.backgroundColor='grey'
     document.addEventListener('mousemove', Move);
 
 }
 
 let Drop = function(){
+    SL.style.backgroundColor='rgb(75, 73, 73)'
     document.removeEventListener('mousemove', Move);
 
 }
