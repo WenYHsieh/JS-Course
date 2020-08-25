@@ -9,36 +9,37 @@ function getId(id){
 let LB = getId('Left');
 let SL = getId('Slide');
 let RB = getId('Right');
+let MB = getId('Main');
 
 ///// Event function /////
 let Move = function(eventObj){
     console.log(eventObj.clientX, eventObj.clientY);
-    
-    let screenWidth = window.screen.availWidth;
-    let blockWidth = screenWidth*0.5;
-    let changePercentage = (blockWidth - eventObj.clientX)/blockWidth;
-    console.log(changePercentage);
+    // 螢幕寬度
+    //let screenWidth = window.screen.availWidth;
+    // 左右block寬度
+    //let blockWidth = screenWidth*0.5;
+    // 移動改變的距離
+    //let changeDistance = blockWidth - eventObj.clientX;
+    let changeDistance = (500 - eventObj.clientX);
+    console.log(changeDistance);
     SL.style.position = 'fixed';
-    SL.style.left = blockWidth-(blockWidth*changePercentage) + 'px';
+    SL.style.left = 500-changeDistance + 'px';
     SL.style.cursor = 'e-resize'
-    LB.style.width = blockWidth-(blockWidth*changePercentage) + 'px';
-    RB.style.width = screenWidth+(blockWidth*changePercentage) + 'px';
+    LB.style.width = (500-changeDistance) + 'px';
+    RB.style.width = (500+changeDistance) + 'px';
     
-
-
-
 
 }
 
 let Drag = function(){
     SL.style.backgroundColor='grey'
-    document.addEventListener('mousemove', Move);
+    MB.addEventListener('mousemove', Move);
 
 }
 
 let Drop = function(){
     SL.style.backgroundColor='rgb(75, 73, 73)'
-    document.removeEventListener('mousemove', Move);
+    MB.removeEventListener('mousemove', Move);
 
 }
 

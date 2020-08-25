@@ -1,20 +1,20 @@
 .main{
-    width:100%; /* 要給居中的元素一個寬度，不然margin設定會失效 */
+    width:1000px; /* 要給居中的元素一個寬度，不然margin設定會失效 */
     display: flex;
 
-    /*margin-left: 10%;*/
-    /*margin-right: 10%;*/
+    /*margin-left: 10%;
+    margin-right: 10%;*/
 
 }
 .leftBlock{
-    width:50%;
-    height:800px;
+    width:500px;
+    height:1000px;
     background-color: rgb(228, 228, 228);
 
 }
 .Slider{
-    width:0.5%;
-    height:800px;
+    width:10px;
+    height:1000px;
     background-color: rgb(75, 73, 73);
     position: static;
     cursor: default;
@@ -23,8 +23,8 @@
 
 }
 .rightBlock{
-    width:50%;
-    height:800px;
+    width:500px;
+    height:1000px;
     background-color: rgb(181, 151, 209);
 
 }
