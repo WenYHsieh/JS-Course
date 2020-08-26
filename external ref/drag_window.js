@@ -22,16 +22,17 @@ let Move = function(eventObj){
     //let changeDistance = blockWidth - eventObj.clientX;
     let changeDistance = (500 - eventObj.clientX);
     console.log(changeDistance);
+
     SL.style.position = 'fixed';
     SL.style.left = 500-changeDistance + 'px';
     SL.style.cursor = 'e-resize'
     LB.style.width = (500-changeDistance) + 'px';
     RB.style.width = (500+changeDistance) + 'px';
-    
+
 
 }
 
-let Drag = function(){
+let Drag = function(){    
     SL.style.backgroundColor='grey'
     MB.addEventListener('mousemove', Move);
 
