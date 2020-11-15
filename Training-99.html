@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training 99</title>
+</head>
+<body>
+    <h2> Training 99 </h2>
+    <div id="loading"></div>
+    <div id="menu">
+        <button onclick="initGame();" 
+        style='background-color: #0f12c4;
+                border: none;
+                color: white;
+                padding: 20px 25px;
+                text-align: center;
+                display: inline-block;
+                font-size: 20px;
+                box-shadow: 0 8px 16px 0 rgba(117, 116, 116, 0.2),
+                 0 6px 20px 0 rgba(0,0,0,0.19);'>Start Trainning</button>
+    </div>
+    <div id="game" style='display:none'> 
+        <canvas id="cvs" width='800' height='600'></canvas>
+    </div>
+            <!-- <div id="endAlert" style='color:red; font-size: 100px;'></div>
+            <div id="restart" style='color:rgba(255, 0, 0, 0.39); font-size: 30px;'></div> -->
+        
+    <script>
+        // 全域變數管理物件
+        let ga={
+            ctx:null,
+            
+            lib:{},
+            // resource
+            res:{
+                total:2,
+                loaded:0,
+                imgs:{explosion:"./external ref/explosion.png", plane:"./external ref/plane.png"}
+            },
+            game:{
+                id:null, // 記錄排程
+                cycle:0,
+                plane:null,
+                bulletSystem:null,
+                particles:[],
+                // 記錄方向鍵有無被按著
+                key:{
+                    left:false, top:false, right:false, bottom:false, space:false
+                },
+
+            }
+        };
+    </script>
+
+    <script src="./external ref/lib-game.js"></script>
+
+    <script>
+        function init(){ // 這函式用來做一些準備方便之後使用
+            ga.ctx=document.querySelector('#cvs').getContext('2d');
+            loadImages();
+        }        
+
+        function loadImage(name, src){
+            let img = new Image();
+            img.src = src; // 讀到這行的時候會開始去載入圖檔，在背景載，並不是整隻程式停在這邊等他載完
+            img.addEventListener('load', function(){
+                ga.res.imgs[name]=img; // 載入後直接覆蓋原本的網址變成載入後生成的圖片物件，之後要用圖片就直接拿全域變數物件中的就好
+                ga.res.loaded++;
+                // let percentage = 100*ga.res.loaded/ga.res.total;
+                // document.querySelector('#loading').innerHTML=percentage+'%';
+                if (ga.res.loadded == ga.res.total){
+                    initMenu();
+                }
+            })
+        }
+        function loadImages(){
+            // 逐一取得物件中的成員
+            for (let name in ga.res.imgs){
+                loadImage(name, ga.res.imgs[name]);
+            }
+
+        }
+        function initMenu(){
+            document.querySelector('#loading').style.display='none';
+            document.querySelector('#menu').style.display='block';
+            document.querySelector('#game').style.display='none';
+        }
+
+        function initGame(){
+            // 處理 html 介面
+            document.querySelector('#menu').style.display='none';
+            document.querySelector('#game').style.display='block';
+            // 初始化鍵盤控制
+            ga.game.key={
+                    left:false, top:false, right:false, bottom:false, space:false}
+            // 清除畫面點擊
+            ga.ctx.canvas.removeEventListener('click', initMenu)
+            // 清除結束提醒
+            // document.querySelector('#endAlert').innerHTML='';
+            // document.querySelector('#restart').innerHTML='';
+            // 加入鍵盤控制
+            document.addEventListener('keydown', keydown); // 按下鍵盤(任意一個鍵)
+            document.addEventListener('keyup', keyup); // 放開鍵盤 (任意一鍵)
+
+            // 初始化遊戲資料
+            ga.game.cycle=0;
+            ga.game.plane=new ga.lib.Plane();
+            ga.game.bulletSystem=new ga.lib.BulletSystem();
+            ga.game.particles=[ga.game.plane,ga.game.bulletSystem]; // 引擎是到particles裡面取東西，所以要放進去
+            // 啟動遊戲
+            ga.game.id = window.setInterval(updateGame, 10);
+        }
+
+        function keydown(event){
+            // console.log(event)
+            let code = event.keyCode;
+            let key = ga.game.key;
+            if (code === 37){ // left
+                key.left=true;
+            }else if (code === 38){ // top
+                key.top=true;
+            }else if (code === 39){ // right
+                key.right=true;
+            }else if (code === 40){// bottom
+                key.bottom=true;
+            }else if (code === 32){// space
+                key.space=true;
+            } 
+        }
+
+        function keyup(event){
+            let code = event.keyCode;
+            let key = ga.game.key;
+            if (code === 37){ // left
+                key.left=false;
+            }else if (code === 38){ // top
+                key.top=false;
+            }else if (code === 39){ // right
+                key.right=false;
+            }else if (code === 40){// bottom
+                key.bottom=false;
+            }else if (code === 32){// space
+                key.space=false;
+            }
+        }
+
+        function updateGame(){ // 引擎
+            let particles = ga.game.particles; 
+            //更新資料
+            for (let i=0; i<particles.length; i++){
+                // let dead = particles[i].update();
+                if(particles[i].update()){
+                    particles.splice(i,1);
+                    i--
+                }
+            }
+            // 清空畫面 背景塗黑
+            ga.ctx.fillRect(0, 0, ga.ctx.canvas.width, ga.ctx.canvas.height);
+            // 重新繪製
+            for (let i=0; i<particles.length; i++){
+                particles[i].draw();
+            }
+            // 碰撞偵測
+            if (checkExplosion()){
+                endGame();
+            }
+            // 回合更新
+            ga.game.cycle++;
+            // document.querySelector('#cycle').innerHTML=parseInt(ga.game.cycle/8);
+        }
+
+        function endGame(){
+            // 如果碰到了就畫上爆炸特效
+            let plane=ga.game.plane;
+            ga.ctx.drawImage(ga.res.imgs.explosion,
+                plane.x-20, plane.y-20, 40, 40)
+            // 中斷遊戲運作
+            window.clearInterval(ga.game.id);
+            // 提示 Game over
+            // document.querySelector('#endAlert').innerHTML='Game Over'
+            // document.querySelector('#restart').innerHTML='Press To Restart'
+            // 點畫面回到主選單
+            ga.ctx.canvas.addEventListener('click', initMenu)
+
+            
+
+        }
+
+        function checkExplosion(){
+            let plane = ga.game.plane;
+            let bullets = ga.game.bulletSystem.bullets;
+            for (let i=0; i<bullets.length; i++){
+                let bullet=bullets[i];
+                let threshold= bullet.size+(plane.size/2); //子彈半徑+飛機的方形區域半徑
+                let distance=Math.sqrt(
+                    Math.pow(plane.x-bullet.x, 2)+
+                    Math.pow(plane.y-bullet.y, 2)
+                );
+                if (distance <= threshold){
+                    return true;
+                }
+            }
+            return false;
+        }
+        init();
+
+    </script>
+</body>
+</html>
