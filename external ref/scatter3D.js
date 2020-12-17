@@ -55,7 +55,7 @@ let Promiscuous = {
 let data = [CuSpecialist, AuSpecialist, AgSpecialist];
 
 let data2 = [Promiscuous];
-
+let data3 = [CuSpecialist, AuSpecialist, AgSpecialist,Promiscuous];
 
 
 let layout = {
@@ -71,4 +71,5 @@ let layout = {
 };
 Plotly.newPlot('specialist', data, layout);
 Plotly.newPlot('promiscuous', data2, layout);
+Plotly.newPlot('promiscuous', data3, layout);
 });
