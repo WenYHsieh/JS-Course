@@ -1,5 +1,6 @@
 let specialist = document.getElementById('specialist');
 let promiscuous = document.getElementById('promiscuous');
+let All = document.getElementById('All');
 Plotly.d3.csv('./external ref/test_3d_FL.csv', function(err, rows){
 function unpack(rows, key) {
 	return rows.map(function(row)
@@ -71,5 +72,5 @@ let layout = {
 };
 Plotly.newPlot('specialist', data, layout);
 Plotly.newPlot('promiscuous', data2, layout);
-Plotly.newPlot('promiscuous', data3, layout);
+Plotly.newPlot('All', data3, layout);
 });
