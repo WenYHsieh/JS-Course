@@ -15,7 +15,7 @@ let CuSpecialist = {
 		symbol: 'circle',
 
 		opacity: 0.8},
-    type: 'scatter3d'};
+    type: 'scatter3d'}; 
 
 let AuSpecialist = {
 	x:unpack(rows, 'folChange_Cu_u'), y: unpack(rows, 'folChange_Au_u'), z: unpack(rows, 'folChange_Ag_u'),
@@ -55,7 +55,7 @@ let Promiscuous = {
 
 let data = [CuSpecialist, AuSpecialist, AgSpecialist];
 
-let data2 = [Promiscuous];
+// let data2 = [Promiscuous];
 let data3 = [CuSpecialist, AuSpecialist, AgSpecialist,Promiscuous];
 
 
@@ -71,6 +71,6 @@ let layout = {
     zaxis:{title:{text:'Ag',font:{size:20}},linewidth:5,gridwidth:3,tickfont:{size:15},range: [-0.5, 2.5],ticks:'outside'}}
 };
 Plotly.newPlot('specialist', data, layout);
-Plotly.newPlot('promiscuous', data2, layout);
+// Plotly.newPlot('promiscuous', data2, layout);
 Plotly.newPlot('All', data3, layout);
 });
