@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-dos</title>
+    <link rel="stylesheet" href="external ref/todo.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">    
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="title"> To Do List </div>
+        <hr/>
+        <div class="inner-container"> 
+            <input id="todos" type="text" value="" placeholder=" please enter to-dos ...">
+            <button class="add-btn" onclick="add();"> Add </button>
+            <button class="clear-btn" onclick="clearAll();"> Clear </button>
+            
+        </div>    
+        <div class="content" id="content"> <ul></ul> </div>
+    </div>
+
+    <script src="external ref/todo.js"></script>
+</body>
+</html>

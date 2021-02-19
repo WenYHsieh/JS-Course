@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS review</title>
+</head>
+<body>
+    <h2> hello </h2>
+
+    <script>
+        /*
+        let test = function(n1, n2){
+            console.log(n1+n2);
+        };
+        // 箭頭函式
+        (參數)=>{
+            函式區塊
+        }
+        
+        let test = (n1, n2)=>{
+            console.log(n1+n2);
+        };
+        
+        // 如果函式是直接由參數表達成回傳直，如果要if else之類的，可以用箭頭函式更加簡略地寫
+        let test = (n1, n2) => (n1+n2);
+        console.lig(test(3,4));
+        */
+        // 關於函示的 binding object (this)
+        // 函式在運作時是綁定this的，
+        // function test(){
+        //     console.log(this); // 這邊的this是window 因為她是全域函式
+        // }
+        // 如果不想要this是window，可以自己改 -> 函式.bind(自訂的綁定物件) -> 只是把新的物件綁定上去，並沒有改變原本的函式
+        //test = test.bind({x:3})
+        // let x = test.bind({x:3})
+        // x();
+        // test();
+        // document.body.addEventListener('click', function(){
+        //     console.log(this); // 這邊的this是body，誰觸發這個函式，誰就是this
+
+        // })
+        // document.body.addEventListener('click', function(){
+        //     console.log(this);
+        // }).bind({y:3});
+
+        // 類別與物件
+        // let point={
+        //     x:3,
+        //     y:5,
+        //     show:function(){
+        //         console.log('show');
+        //     }
+        // };
+        // console.log(point);
+        // 類別: 定義物件的模板
+        /*
+            class 類別名稱{
+                constructor(){ // 建構式
+
+                }
+                // 方法: 物件裡面的函式
+                方法一(){
+
+                }
+
+            }
+        */
+        class Point{
+            constructor(x, y){
+                // 通常我們會在建構式裡建構物件屬性
+                this.x=x; // this 就代表這個物件本身
+                this.y=y;
+            }
+            show(){ // 方法中的this就代表物件本身
+                console.log(this);
+                console.log(this.x, this.y);
+                alert('hi');
+            }
+            render(){ // react or vue 概念上都是用程式"動態地"去產生介面
+            //HTMLButtonElement
+                let btn = document.createElement('button') // <button></button>
+                btn.innerHTML='Point'+this.x+','+this.y; // <button>P1</button>
+                btn.addEventListener('click', this.show.bind(this)); //這邊的this變成button了 //在後面.bind(this) 加上的this表示物件本身
+                document.body.appendChild(btn);
+                
+            }
+        }
+        let p1 = new Point(3,4); //new是在呼叫建構式
+        p1.render();
+        let p2 = new Point(5,6);
+        p2.render();
+
+
+
+
+
+
+
+
+
+
+        
+    </script>
+</body>
+</html>

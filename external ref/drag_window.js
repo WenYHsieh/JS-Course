@@ -21,8 +21,14 @@ let Move = function(eventObj){
     // 移動改變的距離
     //let changeDistance = blockWidth - eventObj.clientX;
     let changeDistance = (500 - eventObj.clientX);
+    let clientXPosition = eventObj.clientX;
     console.log(changeDistance);
-
+    /*
+    console.log(clientXPosition);
+    if (clientXPosition >= 998){
+        clientXPosition = 998;
+    }//一個點(設定不能拉過去的座標X)，就把object.clientX設定為那個座標X
+    */
     SL.style.position = 'fixed';
     SL.style.left = 500-changeDistance + 'px';
     SL.style.cursor = 'e-resize'
@@ -34,13 +40,13 @@ let Move = function(eventObj){
 
 let Drag = function(){    
     SL.style.backgroundColor='grey'
-    MB.addEventListener('mousemove', Move);
+    document.addEventListener('mousemove', Move);
 
 }
 
 let Drop = function(){
     SL.style.backgroundColor='rgb(75, 73, 73)'
-    MB.removeEventListener('mousemove', Move);
+    document.removeEventListener('mousemove', Move);
 
 }
 

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrollbar</title>
+    <link rel="stylesheet" href="external ref/scrollbar.css">
+    
+</head>
+<body>
+    <div class="title"> 菜單 </div>
+    <hr>
+
+    <div class="box"> 
+        <!-- 卷軸設定的條件
+        1. 外層 tag 要設定高度 (不能使用預設-> 因為預設為 height:auto;)
+        2. 高度要小於顯示行數 -> 以滿足 overfolw 條件
+        3. css 設定 -> overflow: scroll (預設為全部顯示，如此超過的文字也會出現) -->
+        <div class="line"> 古早彈珠汽水 (20 元) </div>
+        <div class="line"> 一口酥臭豆腐加泡菜 (小: 50 元 / 大: 60 元) </div>
+        <div class="line"> 吻仔魚烤鳥蛋 (25 元) </div>
+        <div class="line"> 濃郁炸鮮奶 (30 元) </div>
+        <div class="line"> 嘟嘟好烤香腸 (35 元) </div>
+        <div class="line"> 豬肉炒泡麵 (50 元) </div>
+        <div class="line"> 無骨雞塊 (60 元) </div>
+        <div class="line"> 紅豆車輪餅 (15 元) </div>
+        <div class="line"> 珍珠鮮奶茶 (50 元) </div>
+        <div class="line"> 古早味紅茶 (25 元) </div>
+        <div class="line"> 日式綠茶 (25 元) </div>
+        <div class="line"> 古早彈珠汽水 (20 元) </div>
+        <div class="line"> 一口酥臭豆腐加泡菜 (小: 50 元 / 大: 60 元) </div>
+        <div class="line"> 吻仔魚烤鳥蛋 (25 元) </div>
+        <div class="line"> 濃郁炸鮮奶 (30 元) </div>
+        <div class="line"> 嘟嘟好烤香腸 (35 元) </div>
+        <div class="line"> 豬肉炒泡麵 (50 元) </div>
+        <div class="line"> 無骨雞塊 (60 元) </div>
+        <div class="line"> 紅豆車輪餅 (15 元) </div>
+        <div class="line"> 珍珠鮮奶茶 (50 元) </div>
+        <div class="line"> 古早味紅茶 (25 元) </div>
+        <div class="line"> 日式綠茶 (25 元) </div>
+        <div class="line"> 古早彈珠汽水 (20 元) </div>
+        <div class="line"> 一口酥臭豆腐加泡菜 (小: 50 元 / 大: 60 元) </div>
+        <div class="line"> 吻仔魚烤鳥蛋 (25 元) </div>
+        <div class="line"> 濃郁炸鮮奶 (30 元) </div>
+        <div class="line"> 嘟嘟好烤香腸 (35 元) </div>
+        <div class="line"> 豬肉炒泡麵 (50 元) </div>
+        <div class="line"> 無骨雞塊 (60 元) </div>
+        <div class="line"> 紅豆車輪餅 (15 元) </div>
+        <div class="line"> 珍珠鮮奶茶 (50 元) </div>
+        <div class="line"> 古早味紅茶 (25 元) </div>
+        <div class="line"> 日式綠茶 (25 元) </div>
+        <div class="line"> 古早彈珠汽水 (20 元) </div>
+        <div class="line"> 一口酥臭豆腐加泡菜 (小: 50 元 / 大: 60 元) </div>
+        <div class="line"> 吻仔魚烤鳥蛋 (25 元) </div>
+        <div class="line"> 濃郁炸鮮奶 (30 元) </div>
+        <div class="line"> 嘟嘟好烤香腸 (35 元) </div>
+        <div class="line"> 豬肉炒泡麵 (50 元) </div>
+        <div class="line"> 無骨雞塊 (60 元) </div>
+        <div class="line"> 紅豆車輪餅 (15 元) </div>
+        <div class="line"> 珍珠鮮奶茶 (50 元) </div>
+        <div class="line"> 古早味紅茶 (25 元) </div>
+        <div class="line"> 日式綠茶 (25 元) </div>
+    </div>
+    <script>
+        let box;
+        window.onload=function(){
+            box=document.querySelector(".box");
+            window.setInterval(scroll, 100);
+        };
+        let scroll=function(){
+            box.scrollTop++;
+        }
+
+    </script>
+</body>
+</html>

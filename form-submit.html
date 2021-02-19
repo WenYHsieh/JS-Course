@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registeration page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <link rel="stylesheet" href="external ref/form-submit.css">
+</head>
+<body>
+    <div class="outer-container"> 
+        <h3 class="title"> Sign Up For Free</h3>
+        <hr>
+        <form class="inner-container" onsubmit="alert('Thanks for registring');">
+            Account <input placeholder="5 ~ 15 characters and numbers" type="account" required pattern="[A-Z0-9a-z]{5,15}"><span class="ok"> o </span><br/>
+            Password <input placeholder="5 ~ 15 characters and numbers" type="password" required pattern="[a-z]{5,15}"><span class="ok"> o </span><br/>
+            E-mail <input type="email" required><br/>
+            Phone Number <input type="text" class="phone-number" pattern="[0-9]{10}"><br/>
+            <br/>
+            <div class="gender-title">Gender
+                <input class="radio" type="radio" name="gender" value="male" required> Male
+                <input class="radio" type="radio" name="gender" value="female" required> Female
+                <input class="radio" type="radio" name="gender" value="other" required> Other
+            </div>
+
+            Name <input class="name" /><br/>
+            Birthday <select required> 
+        
+                <option value="" class="1997">1996</option>
+                <option value="" class="1997">1997</option>
+                <option value="" class="1997">1998</option>
+            </select> <br/><br/>
+            <input class='submit-btn' type='submit' vlaue="submit"/> 
+        </form>
+    </div>
+</body>
+</html>
