@@ -1,5 +1,7 @@
 body{
     background-color: rgba(127, 255, 212, 0.575);
+    background: url(crayon-shinchan-bg.jpg) no-repeat center;
+    background-size: cover;
     font-family: 'Ubuntu', 'Arial';
 }
 
