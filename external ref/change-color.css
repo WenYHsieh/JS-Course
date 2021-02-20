@@ -1,0 +1,32 @@
+body{
+    background-color: rgba(156, 105, 204, 0.603);
+    opacity: 1;
+}
+
+.click-me{
+    display: block;
+    border: 3px solid rgb(97, 93, 93);
+    box-shadow: 2px 2px 2px 1px rgba(22, 22, 22, 0.2);
+    border-radius: 100px;
+    margin: 20px auto;
+    padding: 5px;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    background-color:  rgba(255, 0, 0, 0.671);
+}
+
+.click-me:focus{
+    outline: none;
+
+}
+
+.click-me:hover{
+    background-color: rgb(150, 10, 10);
+    color: black
+}
+
+img{
+    display: block;
+    margin: 10px auto;
+
+}
