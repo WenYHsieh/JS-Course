@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painter</title>
+
+    <link rel="stylesheet" href="external ref/painter.css">
+</head>
+<body>
+    <div class="outer-container">
+        <canvas id="canvas" width="500px" height="500px"></canvas>
+        <div class="selector" id="selector">
+            
+            Color <input id="color-picker" class="color-picker" type="color" /> <br/>
+            Size <input id="pen-size-slider" class="pen-size-slider" type="range" min="0" max="50" step="1" value="10" />
+        </div>
+    </div>
+    <a id="save" href="#" download="dl.png" >Save Canvas</a>
+    <script src="external ref/painter.js"></script>
+</body>
+</html>
