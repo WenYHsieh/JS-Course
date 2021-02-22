@@ -9,15 +9,25 @@
     <link rel="stylesheet" href="external ref/painter.css">
 </head>
 <body>
-    <div class="outer-container">
-        <canvas id="canvas" width="500px" height="500px"></canvas>
-        <div class="selector" id="selector">
-            
-            Color <input id="color-picker" class="color-picker" type="color" /> <br/>
-            Size <input id="pen-size-slider" class="pen-size-slider" type="range" min="0" max="50" step="1" value="10" />
+    <div id="outer-container">
+        <div class="canvas-title"> Canvas </div> 
+        <div class="setting-title"> Setting </div>
+        <div class="inner-container">
+            <canvas id="canvas" width="600px" height="500px"></canvas>
+            <div class="selector" id="selector">
+                
+                Color <input id="color-picker" class="color-picker" type="color" /> <br/>
+                Size <input id="pen-size-slider" class="pen-size-slider" type="range" min="0" max="50" step="1" value="10" />
+                Eraser <button class="eraser" id="eraser"></button> <br/>
+                <button class="clear-all" id="clear-all"> Clear All </button> <br/>
+                <hr/>
+                <div class="save-container" id="save-container">
+                    File name: <input id="save-filename" type="text" placeholder="input file name..."/>
+                    <a id="save" href="#" download="" >Click to save canvas</a>
+                </div>
+            </div>
         </div>
     </div>
-    <a id="save" href="#" download="dl.png" >Save Canvas</a>
     <script src="external ref/painter.js"></script>
 </body>
 </html>

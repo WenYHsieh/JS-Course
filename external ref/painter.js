@@ -2,9 +2,16 @@
 let cvs=document.querySelector('#canvas');
 // 取得 Canvas 對應的 Context 物件
 let ctx=cvs.getContext('2d');
+ctx.fillStyle = "white";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
 let colorPicker = document.querySelector('#color-picker');
 let penSizeSlider = document.querySelector('#pen-size-slider');
 let saveImg = document.querySelector('#save');
+let eraser = document.querySelector('#eraser');
+let drawMode = true;
+let clearAll = document.querySelector('#clear-all');
+let saveFileName = document.querySelector('#save-filename');
 //起始點座標
 let x1= 0
 let y1= 0
@@ -40,9 +47,7 @@ cvs.addEventListener("mousedown", function(e){
 })
 
 cvs.addEventListener("mousemove", function(e){ // 當滑鼠移動 & mouse active (mosedown)
-      if(!isMouseActive){
-        return
-      }
+      if (isMouseActive&drawMode){
       // 取得終點座標
       x2 = e.offsetX
       y2 = e.offsetY
@@ -57,14 +62,41 @@ cvs.addEventListener("mousemove", function(e){ // 當滑鼠移動 & mouse active
       // 更新起始點座標
       x1 = x2
       y1 = y2
-})
+      }else if (isMouseActive&!drawMode){
+        x2 = e.offsetX
+        y2 = e.offsetY
+        
+        // 開始繪圖
+        ctx.beginPath()
+        ctx.moveTo(x1, y1)
+        ctx.lineTo(x2, y2)
+        ctx.strokeStyle = '#ffffff';
+        ctx.stroke();
+        
+        // 更新起始點座標
+        x1 = x2
+        y1 = y2
+      }else{
+        return;
+      };
+});
 
 cvs.addEventListener("mouseup", function(e){
   isMouseActive = false
-})
+});
 
 saveImg.addEventListener('click', function(){
     let url = canvas.toDataURL();
     //利用toDataURL() 把canvas轉成data:image
     this.href = url;
+    this.download = saveFileName.value;
 });
+
+eraser.addEventListener('click', function(){
+  drawMode = false;
+});
+
+clearAll.addEventListener('click', function(){
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+})
