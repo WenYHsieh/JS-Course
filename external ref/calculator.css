@@ -1,0 +1,82 @@
+body{
+    font-family: 'Ubuntu', 'Arial';
+}
+
+input{
+    margin-left: 10px;
+    width: 400px;
+    height: 80px;
+    font-size: 40px;
+    direction: ltr;
+    text-align: right;
+    border: 3px solid rgb(106, 106, 107);
+    box-shadow: 1px 1px 2px 2px gray;
+    background-color: rgba(253, 253, 253, 0.9);
+}
+
+.panel-container{
+    font-size: 40px;
+    padding: 10px;
+    margin: 10px;
+    width: 408px; 
+    height: 500px;
+    border: 3px solid rgb(106, 106, 107);
+    box-shadow: 1px 1px 2px 2px gray;
+    background-color: rgba(253, 253, 253, 0.9);
+}
+
+.number-btn{
+    width: 100px;
+    text-align: center;
+    border: 3px solid rgb(197, 197, 197);
+    color: white;
+    background-color: rgba(103, 77, 110, 0.815);
+    border-radius: 8px;
+    transition: 500ms;
+}
+
+.operator-btn{
+    width: 100px;
+    text-align: center;
+    border: 3px solid rgb(197, 197, 197);
+    background-color: rgb(211, 203, 219);
+    border-radius: 8px;
+    transition: 0.5s;
+}
+
+.ancillary-btn{
+    width: 100px;
+    text-align: center;
+    border: 3px solid rgb(197, 197, 197);
+    background-color: rgb(247, 218, 222);
+    border-radius: 8px;
+    transition: 0.5s;
+}
+
+.outer-container{
+    width: 430px;
+    padding: 10px;
+    margin: 0 auto;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px rgb(179, 177, 177);
+    background-color: rgba(103, 77, 110, 0.815);
+
+}
+
+.number-btn:hover{
+    background-color: rgba(177, 150, 179, 0.89);
+    border-color: rgb(90, 88, 88);
+    cursor: pointer;
+}
+ .operator-btn:hover{
+    background-color: rgba(177, 150, 179, 0.89);
+    border-color: rgb(90, 88, 88);
+    cursor: pointer;
+ }
+ 
+ .ancillary-btn:hover{
+    background-color: rgba(220, 163, 224, 0.89);
+    border-color: rgb(90, 88, 88);
+    cursor: pointer;
+ }

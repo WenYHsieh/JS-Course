@@ -100,3 +100,7 @@ clearAll.addEventListener('click', function(){
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 })
+
+colorPicker.addEventListener('click', function(){
+  drawMode = true;
+});

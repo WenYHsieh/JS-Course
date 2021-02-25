@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="external ref/calculator.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin"> 
+</head>
+<body>
+    <div class="outer-container">
+        <!-- use js to filter out non-digits -->
+        <input type="text" dir="ltr" value="" id="input-number" class="input-number"/> 
+        <table class='panel-container' id='panel-contianer'>
+            <tr>
+              <td class='ancillary-btn' id='ancillary-btn-clear'> AC </td>
+              <td class='ancillary-btn' id='ancillary-btn-sign'> +/- </td>
+              <td class='ancillary-btn' id='ancillary-btn-percentage'> % </td>
+              <td class='operator-btn' id='operator-btn-divide'> ÷ </td>
+            </tr>
+            <tr>
+              <td class='number-btn' id='number-btn-7'> 7 </td>
+              <td class='number-btn' id='number-btn-8'> 8 </td>
+              <td class='number-btn' id='number-btn-9'> 9 </td>
+              <td class='operator-btn' id='operator-btn-multiply'> × </td>
+            </tr>
+            <tr>
+                <td class='number-btn' id='number-btn-4'> 4 </td>
+                <td class='number-btn' id='number-btn-5'> 5 </td>
+                <td class='number-btn' id='number-btn-6'> 6 </td>
+                <td class='operator-btn' id='operator-btn-subtract'> - </td>
+            </tr>
+            <tr>
+                <td class='number-btn' id='number-btn-1'> 1 </td>
+                <td class='number-btn' id='number-btn-2'> 2 </td>
+                <td class='number-btn' id='number-btn-3'> 3 </td>
+                <td class='operator-btn' id='operator-btn-add'> +</td>
+            </tr>
+            <tr>
+                <td class='number-btn' id='number-btn-0' colspan="2"> 0 </td>
+                <td class='number-btn' id='ancillary-btn-point'> · </td>
+                <td class='operator-btn' id='operator-btn-equal'> = </td>
+            </tr>
+          </table>
+    </div>
+    <script src="external ref/calculator.js"></script>
+</body>
+</html>
